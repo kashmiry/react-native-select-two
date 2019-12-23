@@ -246,7 +246,9 @@ class Select2 extends Component {
                                                         this.setState({ data, preSelectedItem });
                                                         onRemoveItem && onRemoveItem(selectedIds, selectedObjectItems);
                                                     }}
-                                                    tagName={tag.name} />
+                                                    tagName={tag.name}
+                                                    tagImage={() => (imageComponent && tag.image) && imageComponent(tag.image)}
+                                                    />
                                             );
                                         })
                                     }
