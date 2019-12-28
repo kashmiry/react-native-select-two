@@ -102,7 +102,8 @@ const mockData = [
 ]
 ```
 
-### 2- Pass your chosen image component to `imageComponent` prop.
+### 2- Pass your chosen image component
+Add it to `<Select2>` component as a prop.
 ```
 imageComponent={(imageSrc) =>
     <Image
