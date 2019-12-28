@@ -94,13 +94,13 @@ class CreateNewAppointment extends Component {
 Using `imageComponent` prop will allow you to pass an image component to each list item.
 ### 1- Add image to your data 
 Append an `image` property with a url or path in your list of data.
-`
+```
 const mockData = [
   { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png' }, // set default checked for render option item
   { id: 2, name: "Peru", image: 'flag_peru.png'  },
-  { id: 3, name: "Costa Rica", image: 'flag_costa-rica.png'  }
+  { id: 3, name: "Costa Rica", image: 'flag_costa_rica.png'  }
 ]
-`
+```
 
 ### 2- Pass your chosen image component to `imageComponent` prop.
 ```
