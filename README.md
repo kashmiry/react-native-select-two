@@ -90,10 +90,10 @@ class CreateNewAppointment extends Component {
 | **imageComponent**          | _Function_     | none                            | Attach your preferred image component to this function.                           |
 | **isRTL**           | _Bool_       | I18nManager.isRTL                            | Disable or enable RTL support                                                                     |
 
-## How to attach an image component
+## Attaching an image component
 Using `imageComponent` prop will allow you to pass an image component to each list item.
-### 1- Add image to your data 
-Append an `image` property with a url or path in your list of data.
+### 1- Add image property to your data 
+Add an `image` property with a url to your image source, in your list of data.
 ```
 const mockData = [
   { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png' }, // set default checked for render option item
@@ -103,7 +103,7 @@ const mockData = [
 ```
 
 ### 2- Pass your chosen image component
-Add it to `<Select2>` component as a prop.
+Add it to `<Select2>` component as a prop (`imageComponent`).
 ```
 imageComponent={(imageSrc) =>
     <Image
@@ -112,5 +112,6 @@ imageComponent={(imageSrc) =>
     />
 }
 ```
+![Image component](https://user-images.githubusercontent.com/4423561/71541394-24381880-2950-11ea-84aa-299593b79eef.gif)
 
 **MIT Licensed**
