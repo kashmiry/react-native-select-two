@@ -99,7 +99,7 @@ class Select2 extends Component {
     }
     keyExtractor = (item, idx) => idx.toString();
     renderItem = ({ item, idx }) => {
-        let { colorTheme, isSelectSingle, isRTL } = this.props;
+        let { colorTheme, isSelectSingle, isRTL, imageComponent } = this.props;
         return (
             <TouchableOpacity
                 key={idx}
@@ -109,6 +109,7 @@ class Select2 extends Component {
                 <Text style={[styles.itemText, this.defaultFont, isRTL && {textAlign:'left', marginLeft: 10}]}>
                     {item.name}
                 </Text>
+                {(imageComponent && item.image) && imageComponent(item.image)}
                 <Icon style={styles.itemIcon}
                     name={item.checked ? 'check-circle-outline' : 'radiobox-blank'}
                     color={item.checked ? colorTheme : '#777777'} size={20} />
@@ -130,10 +131,9 @@ class Select2 extends Component {
         let {
             style, modalStyle, title, onSelect, onRemoveItem, popupTitle, colorTheme,
             isSelectSingle, cancelButtonText, selectButtonText, searchPlaceHolderText,
-            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox, isRTL
+            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox, isRTL, imageComponent
         } = this.props;
         let { show, selectedItem, preSelectedItem } = this.state;
-
         return (
             <TouchableOpacity
                 onPress={this.showModal}
@@ -246,7 +246,9 @@ class Select2 extends Component {
                                                         this.setState({ data, preSelectedItem });
                                                         onRemoveItem && onRemoveItem(selectedIds, selectedObjectItems);
                                                     }}
-                                                    tagName={tag.name} />
+                                                    tagName={tag.name}
+                                                    tagImage={() => (imageComponent && tag.image) && imageComponent(tag.image)}
+                                                    />
                                             );
                                         })
                                     }
@@ -326,7 +328,8 @@ Select2.propTypes = {
     showSearchBox: PropTypes.bool,
     cancelButtonText: PropTypes.string,
     selectButtonText: PropTypes.string,
-    isRTL: PropTypes.bool
+    isRTL: PropTypes.bool,
+    imageComponent: PropTypes.func,
 }
 
 //make this component available to the app
