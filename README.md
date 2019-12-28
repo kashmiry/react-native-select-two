@@ -87,26 +87,29 @@ class CreateNewAppointment extends Component {
 | **selectedTitleStyle**    | _Object_       | none                            | Set custom style for display selected title text                                            |
 | **buttonTextStyle**       | _Object_       | none                            | Set custom button text style                                                                |
 | **buttonStyle**           | _Object_       | none                            | Set custom button style                                                                     |
-| **imageComponent**          | _Function_     | none                            | Attach your preferred image component to this function. 
-|
+| **imageComponent**          | _Function_     | none                            | Attach your preferred image component to this function.                           |
 | **isRTL**           | _Bool_       | I18nManager.isRTL                            | Disable or enable RTL support                                                                     |
 
 ## How to attach an image component
-Using `imageComponent ` prop will allow you to pass an image component to each list item.
+Using `imageComponent` prop will allow you to pass an image component to each list item.
 ### 1- Add image to your data 
-Append an 'image' property with a url or path in your list of data.
+Append an `image` property with a url or path in your list of data.
+`
 const mockData = [
   { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png' }, // set default checked for render option item
   { id: 2, name: "Peru", image: 'flag_peru.png'  },
   { id: 3, name: "Costa Rica", image: 'flag_costa-rica.png'  }
 ]
+`
 
 ### 2- Pass your chosen image component to `imageComponent` prop.
-`imageComponent={(imageSrc) =>
+```
+imageComponent={(imageSrc) =>
     <Image
         style={{ width: 22, height: 22}
         source={{ uri: imageSrc }}
     />
-}`
+}
+```
 
 **MIT Licensed**
