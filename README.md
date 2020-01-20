@@ -96,9 +96,9 @@ Using `imageComponent` prop will allow you to pass an image component to each li
 Add an `image` property with a url to your image source, in your list of data.
 ```
 const mockData = [
-  { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png' }, // set default checked for render option item
-  { id: 2, name: "Peru", image: 'flag_peru.png'  },
-  { id: 3, name: "Costa Rica", image: 'flag_costa_rica.png'  }
+  { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png', "searchTerms": [‫"‬السعودية‫"‬] }, // set default checked for render option item
+  { id: 2, name: "Peru", image: 'flag_peru.png', "searchTerms": ["بيرو"]  },
+  { id: 3, name: "Costa Rica", image: 'flag_costa_rica.png' , "searchTerms": [‫"‬كوستا ريكا‫"‬] }
 ]
 ```
 
