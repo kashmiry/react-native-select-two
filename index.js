@@ -55,7 +55,9 @@ class Select2 extends Component {
         let { data, keyword } = this.state;
         let listMappingKeyword = [];
         data.map(item => {
-            if (utilities.changeAlias(item.name).includes(utilities.changeAlias(keyword))) {
+            let toSearch = item.name;
+            if(item.searchTerms && item.searchTerms.length) toSearch += ' ' +  item.searchTerms.join( );
+            if (utilities.changeAlias(toSearch).includes(utilities.changeAlias(keyword))) {
                 listMappingKeyword.push(item);
             }
         });
