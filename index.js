@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { Text, StyleSheet, TouchableOpacity, View, FlatList, TextInput, Dimensions, Animated, Platform, I18nManager } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, TouchableHighlight, View, FlatList, TextInput, Dimensions, Animated, Platform, I18nManager } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Modal from 'react-native-modal';
 import Button from './lib/Button';
@@ -132,11 +132,12 @@ class Select2 extends Component {
     render() {
         let {
             style, modalStyle, title, onSelect, onRemoveItem, popupTitle, colorTheme,
-            isSelectSingle, cancelButtonText, selectButtonText, searchPlaceHolderText,
-            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox, isRTL, imageComponent
+            isSelectSingle, cancelButtonText, selectButtonText, showModalBtnText, searchPlaceHolderText,
+            selectedTitleStyle, buttonTextStyle, buttonStyle, showModalBtnTextStyle, showModalBtnStyle, showSearchBox, isRTL, imageComponent
         } = this.props;
         let { show, selectedItem, preSelectedItem } = this.state;
         return (
+        <View>
             <TouchableOpacity
                 onPress={this.showModal}
                 activeOpacity={0.7}
@@ -259,6 +260,15 @@ class Select2 extends Component {
                         : <Text style={[styles.selectedTitlte, this.defaultFont, selectedTitleStyle, isRTL && {textAlign: 'left'}]}>{title}</Text>
                 }
             </TouchableOpacity>
+            {showModalBtnText &&
+                <TouchableHighlight
+                    onPress={this.showModal}
+                    style={[styles.addBtn, {alignSelf: isRTL ? 'flex-start' : 'flex-end'}, showModalBtnStyle]}
+                >
+                        <Text style={[styles.addBtnText, showModalBtnTextStyle]}>{showModalBtnText}</Text>
+                </TouchableHighlight>
+            }
+        </View>
         );
     }
 }
@@ -288,6 +298,18 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 36, flex: 1
+    },
+    addBtn: {
+        marginTop: 7,
+        paddingVertical: 8, paddingHorizontal: 20,
+        flexWrap: 'nowrap',
+        backgroundColor: '#354053',
+        borderRadius: 4,
+    },
+    addBtnText:{
+        color: '#ffffff',
+        fontSize: 13,
+        fontWeight: '500',
     },
     selectedTitlte: {
         fontSize: 14, color: 'gray', flex: 1
@@ -321,6 +343,8 @@ Select2.propTypes = {
     selectedTitleStyle: PropTypes.object,
     buttonTextStyle: PropTypes.object,
     buttonStyle: PropTypes.object,
+    showModalBtnTextStyle: PropTypes.object,
+    showModalBtnStyle: PropTypes.object,
     title: PropTypes.string,
     onSelect: PropTypes.func,
     onRemoveItem: PropTypes.func,
@@ -330,6 +354,7 @@ Select2.propTypes = {
     showSearchBox: PropTypes.bool,
     cancelButtonText: PropTypes.string,
     selectButtonText: PropTypes.string,
+    showModalBtnText: PropTypes.string,
     isRTL: PropTypes.bool,
     imageComponent: PropTypes.func,
 }

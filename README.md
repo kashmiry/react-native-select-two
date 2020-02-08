@@ -81,12 +81,15 @@ class CreateNewAppointment extends Component {
 | **showSearchBox**         | _Bool_         | true                            | Show or hide search field                                                                   |
 | **cancelButtonText**      | _string_       | Hủy                             | Cancel button text title                                                                    |
 | **selectButtonText**      | _String_       | Chọn                            | Select button text title                                                                    |
+| **showModalBtnText**      | _String_       | none                            | Show modal button text, add value to show the button.                                                                    |
 | **searchPlaceHolderText** | _String_       | Nhập vào từ khóa                | Placeholder text for search field                                                           |
 | **listEmptyTitle**        | _String_       | Không tìm thấy lựa chọn phù hợp | Title to show when there's no item to be render                                             |
 | **defaultFontName**       | _String_       | none                            | Set custom font for all component                                                           |
 | **selectedTitleStyle**    | _Object_       | none                            | Set custom style for display selected title text                                            |
 | **buttonTextStyle**       | _Object_       | none                            | Set custom button text style                                                                |
 | **buttonStyle**           | _Object_       | none                            | Set custom button style                                                                     |
+| **showModalBtnTextStyle**       | _Object_       | none                            | Set custom modal button text style                                                                |
+| **showModalBtnStyle**           | _Object_       | none                            | Set custom modal button style                                                                     |
 | **imageComponent**          | _Function_     | none                            | Attach your preferred image component to this function.                           |
 | **isRTL**           | _Bool_       | I18nManager.isRTL                            | Disable or enable RTL support                                                                     |
 
@@ -96,9 +99,9 @@ Using `imageComponent` prop will allow you to pass an image component to each li
 Add an `image` property with a url to your image source, in your list of data.
 ```
 const mockData = [
-  { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png', "searchTerms": [‫"‬السعودية‫"‬] }, // set default checked for render option item
-  { id: 2, name: "Peru", image: 'flag_peru.png', "searchTerms": ["بيرو"]  },
-  { id: 3, name: "Costa Rica", image: 'flag_costa_rica.png' , "searchTerms": [‫"‬كوستا ريكا‫"‬] }
+  { id: 1, name: "Saudi Arabia", checked: true, image: 'flag_saudi_arabia.png' }, // set default checked for render option item
+  { id: 2, name: "Peru", image: 'flag_peru.png'  },
+  { id: 3, name: "Costa Rica", image: 'flag_costa_rica.png'  }
 ]
 ```
 
